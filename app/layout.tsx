@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Sora, DM_Sans } from 'next/font/google';
 import './globals.css';
 import Providers from '@/components/Providers';
-import PointerGlow from '@/components/PointerGlow';
+import CustomCursor from '@/components/CustomCursor';
 import { profile } from '@/data/portfolio';
 
 const sora = Sora({ subsets: ['latin'], variable: '--font-sora' });
@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${sora.variable} ${dm.variable}`}>
       <body className="bg-bg font-body text-ink antialiased">
-        <PointerGlow />
+        <CustomCursor />
         <Providers><div className="relative z-[1]">{children}</div></Providers>
       </body>
     </html>
