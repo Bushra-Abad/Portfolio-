@@ -5,8 +5,19 @@
 :root { color-scheme: dark; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 body { overflow-x: hidden; }
+.pointer-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(520px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(92, 168, 255, 0.11), rgba(139, 124, 255, 0.05) 36%, transparent 72%);
+  transition: opacity 350ms ease;
+}
+.pointer-glow[data-active='true'] { opacity: 1; }
 :focus-visible { outline: 3px solid #5CA8FF; outline-offset: 3px; border-radius: 6px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .animate-marquee { animation: none; }
+  .pointer-glow { display: none; }
 }
